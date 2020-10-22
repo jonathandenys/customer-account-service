@@ -1,5 +1,6 @@
 package com.spring.project.customerservice.service;
 
+import com.spring.project.customerservice.model.CustomerInformation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
@@ -27,6 +28,7 @@ public class CustomerActionService {
             return "Customer with id " + customerId + " does not exist";
         }
 
+        //CATCH EXCEPTION IF NAN
         try {
             bigInitialCredit = new BigDecimal(initialCredit);
         } catch (Exception e){
@@ -50,5 +52,10 @@ public class CustomerActionService {
             }
         }
         return successMessage;
+    }
+
+    //Gets all the customers information
+    public CustomerInformation getAllCustomerInfo(String customerId){
+        return null;
     }
 }

@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 @Slf4j
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class AccountServiceTest {
+public class CustomerActionServiceTest {
 
     @Autowired
     private CustomerActionService customerActionService;
@@ -24,8 +24,18 @@ public class AccountServiceTest {
         //WHEN
         String testResult = customerActionService.createNewAccount(customerId, initialCredit);
         //THEN
-        log.info(testResult);
         assertEquals(testResult, "A new current account has been created for Customer ID - " + customerId);
+    }
+
+    @Test
+    public void givenExistingCustomerIdAndInitialCreditIsAllocated_expect_newAccountCreatedAndCredited() {
+        //GIVEN
+        String customerId = "001";
+        String initialCredit = "5000";
+        //WHEN
+        String testResult = customerActionService.createNewAccount(customerId, initialCredit);
+        //THEN
+        assertEquals(testResult, "A new current account has been created for Customer ID - " + customerId + " and an amount of €" + initialCredit + " has been credited to the account");
     }
 
     @Test
@@ -36,7 +46,6 @@ public class AccountServiceTest {
         //WHEN
         String testResult = customerActionService.createNewAccount(customerId, initialCredit);
         //THEN
-        log.info(testResult);
         assertEquals(testResult, "Customer with id " + customerId + " does not exist");
     }
 
@@ -48,19 +57,8 @@ public class AccountServiceTest {
         //WHEN
         String testResult = customerActionService.createNewAccount(customerId, initialCredit);
         //THEN
-        log.info(testResult);
         assertEquals(testResult, "Please enter a valid amount/number!");
     }
 
-    @Test
-    public void givenExistingCustomerIdAndInitialCreditIsAllocated_expect_newAccountCreatedAndCredited() {
-        //GIVEN
-        String customerId = "001";
-        String initialCredit = "5000";
-        //WHEN
-        String testResult = customerActionService.createNewAccount(customerId, initialCredit);
-        //THEN
-        log.info(testResult);
-        assertEquals(testResult, "A new current account has been created for Customer ID - " + customerId + " and an amount of €" + initialCredit + " has been credited to the account");
-    }
+
 }
