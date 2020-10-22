@@ -3,11 +3,11 @@ package com.spring.project.customerservice.service;
 import com.spring.project.customerservice.persistence.entity.Transaction;
 import com.spring.project.customerservice.persistence.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-@Service
+@Component
 @RequiredArgsConstructor
 public class TransactionService {
 
