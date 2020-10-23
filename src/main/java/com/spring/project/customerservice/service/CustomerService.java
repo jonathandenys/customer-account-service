@@ -11,7 +11,7 @@ public class CustomerService {
 
     final private CustomerRepository customerRepo;
 
-    public Customer findCustomerById(String customerId){
+    public Customer findCustomerById(final String customerId){
         return customerRepo.findByCustomerId(customerId);
     }
 }

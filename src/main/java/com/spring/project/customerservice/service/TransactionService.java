@@ -5,6 +5,7 @@ import com.spring.project.customerservice.persistence.repository.TransactionRepo
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
 
 @Component
@@ -13,7 +14,7 @@ public class TransactionService {
 
     final private TransactionRepository transactionRepo;
 
-    public Transaction saveNewTransaction(String accountNumber, BigDecimal initialCredit){
+    public Transaction saveNewTransaction(final String accountNumber, final BigDecimal initialCredit){
         String transactionID = UUID.randomUUID().toString();
         return transactionRepo.save(Transaction
                 .builder()
@@ -21,5 +22,9 @@ public class TransactionService {
                 .amount(initialCredit)
                 .accountNumber(accountNumber)
                 .build());
+    }
+
+    public List<Transaction> getTransactionsByAccountNumber(final String accountNumber){
+        return transactionRepo.findByAccountNumber(accountNumber);
     }
 }
