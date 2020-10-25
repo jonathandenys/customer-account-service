@@ -1,24 +1,24 @@
 # customer-account-service
 
-#####To run the project, use the following command in the project root(The project requires Maven and Java 1.8) - 
+##### To run the project, use the following command in the project root(The project requires Maven and Java 1.8) - 
 
 mvn spring-boot:run 
 
-#####or as a jar - 
+##### or as a jar (run mvn package to create the jar before running) - 
 
 java -jar target/customer-account-service-0.0.1-SNAPSHOT.jar
 
-#####The default port is 8080. To switch ports use the following command - (8085 for instance)
+##### The default port is 8080. To switch ports use the following command - (8085 for instance)
 
 mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=8085
 
 java -jar target/customer-account-service-0.0.1-SNAPSHOT.jar --server.port=8085
 
-#####When the project starts, 5 customer IDs are added to the database -
+##### When the project starts, 5 customer IDs are added to the database -
 
 001, 002, 003, 004, 005
 
-#####Endpoints (Default port of 8080 used) - 
+##### Endpoints (Default port of 8080 used) - 
 
 http://localhost:8080/customerAction/getCustomerInformation/{customerID} - View customer information. The endpoint returns a custom model containing all the details.
 
