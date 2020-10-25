@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Account Information</title>
+    <link href = "css/style.css" rel = "stylesheet"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h3>Please enter you customer ID to view your account information</h3>
+<form action="#" th:action="@{/index}" th:object="${customerIDSet}" method="post">
+    <p>Customer ID: <input type="text" th:field="*{customerId}" required></p>
+    <p><input type="submit" value="Submit" /></p>
+</form>
+<h5 th:text="${message}"></h5>
+<div th:switch="${customer}">
+    <h2 th:case="null"></h2>
+    <div th:case="*">
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Balance</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cust : ${customer}">
+                <td th:text="${cust.customerName}"></td>
+                <td th:text="${cust.customerSurname}"></td>
+                <td th:text="${cust.balance}"></td>
+            </tr>
+
+            <tr><th>Account Number</th><th>Credit</th><th></th></tr>
+            <tr th:each="mapEntry : ${customer.accountsAndTransactions}">
+                <td th:text="${mapEntry.key}">keyvalue1</td>
+                <td th:each="item : ${mapEntry.value}" th:text="${item.amount}">keyvalue2</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/newAccount">Add a new account</a></p>
+</div>
+
+</body>
+</html>

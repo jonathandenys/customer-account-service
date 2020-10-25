@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>New Account</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h3>Please enter your customer ID and your initial credit amount</h3>
+<form action="#" th:action="@{/newAccount}" th:object="${newAccount}" method="post">
+    <p>Customer ID: <input type="text" th:field="*{customerId}" required></p>
+    <p>Credit: <input type="text" placeholder="0" value="0" th:field="*{initialCredit}" required></p>
+    <p><input type="submit" value="Submit" /></p>
+</form>
+</body>
+</html>

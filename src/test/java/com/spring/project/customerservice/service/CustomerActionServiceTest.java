@@ -2,6 +2,7 @@ package com.spring.project.customerservice.service;
 
 import com.spring.project.customerservice.model.CustomerInformation;
 import com.spring.project.customerservice.persistence.entity.Transaction;
+import com.spring.project.customerservice.service.CustomerActionService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
